@@ -37,8 +37,9 @@ export function BottomNavigation({ onCartClick }: BottomNavigationProps) {
     <motion.div 
       className="fixed bottom-0 left-0 w-full glass-nav px-2 py-2 flex justify-around items-end z-50 safe-area-pb" 
       data-testid="bottom-navigation"
-      animate={{ y: isHome ? 0 : '100%' }}
-      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+      initial={{ y: 0 }}
+      animate={{ y: isHome ? 0 : -500 }}
+      transition={{ duration: 0.6, ease: [0.32, 0, 0.67, 0] }}
     >
       {navItems.map(item => {
         const Icon = item.icon;
@@ -137,14 +138,16 @@ export function AppLayoutWithNav({ children, onCartClick }: AppLayoutWithNavProp
   const isHome = location === '/';
 
   return (
-    <motion.div 
-      className="min-h-screen bg-gradient-to-b from-violet-50 to-purple-50 dark:from-gray-950 dark:to-purple-950/20"
-      animate={{ paddingBottom: isHome ? '0px' : '0px' }}
-      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-    >
-      {children}
+    <div className="min-h-screen bg-gradient-to-b from-violet-50 to-purple-50 dark:from-gray-950 dark:to-purple-950/20 overflow-hidden">
+      <motion.div
+        animate={{ y: isHome ? 0 : 100 }}
+        transition={{ duration: 0.6, ease: [0.32, 0, 0.67, 0] }}
+        className="min-h-screen"
+      >
+        {children}
+      </motion.div>
       <FloatingCartButton onClick={onCartClick} />
       <BottomNavigation onCartClick={onCartClick} />
-    </motion.div>
+    </div>
   );
 }

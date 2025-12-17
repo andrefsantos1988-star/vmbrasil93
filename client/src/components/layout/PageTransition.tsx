@@ -22,12 +22,12 @@ export function PageTransition({ children }: PageTransitionProps) {
     <AnimatePresence mode="wait">
       <motion.div
         key={displayLocation}
-        initial={{ opacity: 0, y: direction > 0 ? 80 : -80 }}
+        initial={{ opacity: 0, y: direction > 0 ? 150 : -150 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: direction > 0 ? -80 : 80 }}
+        exit={{ opacity: 0, y: direction > 0 ? -150 : 150 }}
         transition={{
-          duration: 0.5,
-          ease: [0.4, 0, 0.2, 1],
+          duration: 0.6,
+          ease: [0.32, 0, 0.67, 0],
         }}
       >
         {children}
