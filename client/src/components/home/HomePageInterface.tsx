@@ -11,6 +11,8 @@ import salgadoImage from '@assets/image_1765222097866.png';
 import cafeImage from '@assets/image_1765222257824.png';
 import { ComboModal } from './ComboModal';
 import { SpecialDrinksModal } from './SpecialDrinksModal';
+import { SearchBox } from '@/components/search/SearchBox';
+import { NotificationsModal } from '@/components/notifications/NotificationsModal';
 
 const CATEGORY_ICONS: Record<string, any> = {
   wine: Wine,
@@ -49,6 +51,7 @@ export function HomePageInterface({
   const [salgadoModalOpen, setSalgadoModalOpen] = useState(false);
   const [cafeModalOpen, setCafeModalOpen] = useState(false);
   const [mistoModalOpen, setMistoModalOpen] = useState(false);
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
 
   const filteredProducts = activeCategory 
     ? products.filter(p => p.categoryId === activeCategory)
@@ -56,29 +59,41 @@ export function HomePageInterface({
 
   const activeBanners = banners.filter(b => b.isActive);
 
-  const userName = user?.name || 'Visitante VM';
+  const userName = user?.name || 'Visitante';
+
+  const handleProductSelect = (product: Product) => {
+    addItem(product);
+  };
 
   return (
     <div className="pb-32 animate-fade-in">
-      <div className="p-6 flex justify-between items-center glass-header sticky top-0 z-40" data-testid="header">
-        <div>
-          <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Bem-vindo</div>
-          <div className="text-xl font-black text-foreground flex items-center gap-1" data-testid="text-username">
-            {userName.split(' ')[0]} <Sparkles size={16} className="text-primary"/>
-          </div>
+      <div className="px-4 py-4 flex flex-col items-center gap-3 glass-header sticky top-0 z-40" data-testid="header">
+        {/* Logo centralizado e aumentado */}
+        <div className="flex items-center gap-2 justify-center">
+          <img src={logoImage} alt="VM Brasil" className="h-16 w-auto" data-testid="img-logo"/>
         </div>
-        <div className="flex items-center gap-3">
-          <img src={logoImage} alt="VM Brasil" className="h-10 w-auto" data-testid="img-logo"/>
-          <button 
-            onClick={() => setLocation('/admin-login')}
-            className="w-10 h-10 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary transition-colors"
-            data-testid="button-admin-login"
-          >
-            <Settings size={20}/>
-          </button>
-          <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary relative">
-            <Bell size={20}/>
-            <span className="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+
+        {/* Texto de boas-vindas reduzido */}
+        <div className="text-center text-xs text-muted-foreground">
+          Bem-vindo, {userName.split(' ')[0]}
+        </div>
+
+        {/* Barra de pesquisa e controles */}
+        <div className="w-full flex items-center justify-between gap-2 px-2">
+          <div className="flex-1">
+            <SearchBox products={products} onProductSelect={handleProductSelect} />
+          </div>
+          
+          <div className="flex items-center gap-2">
+            <NotificationsModal open={notificationsOpen} onOpenChange={setNotificationsOpen} />
+            
+            <button 
+              onClick={() => setLocation('/admin-login')}
+              className="w-10 h-10 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary transition-colors flex-shrink-0"
+              data-testid="button-admin-login"
+            >
+              <Settings size={18}/>
+            </button>
           </div>
         </div>
       </div>
