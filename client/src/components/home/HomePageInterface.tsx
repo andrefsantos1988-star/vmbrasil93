@@ -45,7 +45,7 @@ export function HomePageInterface({
 
   const activeBanners = banners.filter(b => b.isActive);
 
-  const userName = user?.name || 'Visitante';
+  const userName = user?.name || 'Visitante VM';
 
   return (
     <div className="pb-32 animate-fade-in">
@@ -57,7 +57,7 @@ export function HomePageInterface({
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <img src={logoImage} alt="VM Drinks" className="h-10 w-auto" data-testid="img-logo"/>
+          <img src={logoImage} alt="VM Brasil" className="h-10 w-auto" data-testid="img-logo"/>
           <button 
             onClick={() => setLocation('/admin-login')}
             className="w-10 h-10 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary transition-colors"

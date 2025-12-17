@@ -58,12 +58,12 @@ export function HeroSection() {
           >
             <img 
               src={logoImage}
-              alt="VM Drinks"
+              alt="VM Brasil"
               className="h-32 md:h-48 lg:h-56 w-auto drop-shadow-2xl"
               data-testid="img-hero-logo"
             />
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-lg">
-              VM <span className="text-purple-300">Drinks</span>
+              VM <span className="text-purple-300">Brasil</span>
             </h1>
           </motion.div>
           

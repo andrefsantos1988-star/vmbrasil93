@@ -32,7 +32,7 @@ export function Header({ onCartOpen }: HeaderProps) {
         <div className="flex items-center justify-between h-16 gap-4">
           <Link href="/" className="flex items-center gap-3 group">
             <span className="text-xl font-bold purple-text-gradient" data-testid="text-brand">
-              VM Drinks
+              VM Brasil
             </span>
           </Link>
 

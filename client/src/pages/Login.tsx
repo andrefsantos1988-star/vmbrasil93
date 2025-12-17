@@ -340,10 +340,10 @@ export default function Login() {
             <Link href="/" className="flex flex-col items-center mb-4">
               <img 
                 src={logoImage} 
-                alt="VM Drinks" 
+                alt="VM Brasil" 
                 className="h-16 mx-auto hover:opacity-80 transition-opacity"
               />
-              <span className="text-lg font-bold purple-text-gradient mt-2">VM Drinks</span>
+              <span className="text-lg font-bold purple-text-gradient mt-2">VM Brasil</span>
             </Link>
             
             <AnimatePresence mode="wait">
