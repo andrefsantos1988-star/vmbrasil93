@@ -39,15 +39,15 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent className="bg-black/95 backdrop-blur-xl border-l border-primary/20 flex flex-col w-full sm:max-w-md p-0" data-testid="sheet-cart">
+      <SheetContent className="glass-panel border-l border-primary/20 flex flex-col w-full sm:max-w-md p-0" data-testid="sheet-cart">
         <SheetHeader className="px-6 py-5 border-b border-primary/10 bg-gradient-to-r from-primary/5 to-transparent">
           <SheetTitle className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center">
-                <ShoppingCart className="h-5 w-5 text-black" />
+              <div className="w-10 h-10 rounded-xl vm-gradient flex items-center justify-center">
+                <ShoppingCart className="h-5 w-5 text-white" />
               </div>
               <div>
-                <span className="font-serif text-xl text-primary">Carrinho</span>
+                <span className="font-semibold text-xl text-primary">Carrinho</span>
                 {itemCount > 0 && (
                   <p className="text-sm text-muted-foreground font-normal">
                     {itemCount} {itemCount === 1 ? 'item' : 'itens'}
@@ -63,11 +63,11 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="w-24 h-24 rounded-full bg-secondary/50 flex items-center justify-center mb-6"
+              className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-6"
             >
-              <ShoppingBag className="h-12 w-12 text-muted-foreground" />
+              <ShoppingBag className="h-12 w-12 text-primary/50" />
             </motion.div>
-            <h3 className="text-lg font-semibold text-white mb-2">Seu carrinho esta vazio</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-2">Seu carrinho esta vazio</h3>
             <p className="text-muted-foreground mb-6 text-sm">
               Adicione produtos deliciosos para comecar
             </p>
@@ -89,7 +89,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
                     layout
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="p-4 bg-gradient-to-r from-amber-500/10 to-yellow-500/10 rounded-xl border border-primary/30"
+                    className="p-4 bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl border border-primary/30"
                     data-testid={`cart-combo-${combo.id}`}
                   >
                     <div className="flex items-center justify-between mb-3">
@@ -108,16 +108,16 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
                       </Button>
                     </div>
                     <div className="space-y-2 text-sm">
-                      <div className="flex justify-between text-white/80">
+                      <div className="flex justify-between text-foreground/80">
                         <span>1x {combo.destilado.name}</span>
                         <span>{formatPrice(Number(combo.destilado.salePrice))}</span>
                       </div>
-                      <div className="flex justify-between text-white/80">
+                      <div className="flex justify-between text-foreground/80">
                         <span>{combo.energeticoQuantity}x {combo.energetico.name}</span>
                         <span>{formatPrice(Number(combo.energetico.salePrice) * combo.energeticoQuantity)}</span>
                       </div>
                       {combo.gelos.map((gelo, idx) => (
-                        <div key={idx} className="flex justify-between text-white/80">
+                        <div key={idx} className="flex justify-between text-foreground/80">
                           <span>{gelo.quantity}x {gelo.product.name}</span>
                           <span>{formatPrice(Number(gelo.product.salePrice) * gelo.quantity)}</span>
                         </div>
@@ -144,7 +144,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="flex gap-4 p-4 bg-card/50 rounded-xl border border-primary/10 hover:border-primary/20 transition-colors"
+                      className="flex gap-4 p-4 bg-card/80 rounded-xl border border-primary/10 hover:border-primary/20 transition-colors"
                       data-testid={`cart-item-${item.productId}`}
                     >
                       <div className="w-20 h-20 rounded-lg overflow-hidden bg-secondary/50 flex-shrink-0">
@@ -155,7 +155,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
                             className="w-full h-full object-cover"
                           />
                         ) : (
-                          <div className="w-full h-full flex items-center justify-center text-primary text-2xl font-serif">
+                          <div className="w-full h-full flex items-center justify-center text-primary text-2xl font-semibold">
                             {item.product.name.charAt(0)}
                           </div>
                         )}
@@ -163,7 +163,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
 
                       <div className="flex-1 min-w-0">
                         <div className="flex items-start justify-between gap-2">
-                          <h4 className="font-medium text-white text-sm line-clamp-2 flex-1">
+                          <h4 className="font-medium text-foreground text-sm line-clamp-2 flex-1">
                             {item.product.name}
                           </h4>
                           <Button
@@ -192,7 +192,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
                             >
                               <Minus className="h-3 w-3" />
                             </Button>
-                            <span className="w-8 text-center text-white font-medium text-sm">
+                            <span className="w-8 text-center text-foreground font-medium text-sm">
                               {item.quantity}
                             </span>
                             <Button
@@ -205,7 +205,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
                               <Plus className="h-3 w-3" />
                             </Button>
                           </div>
-                          <span className="text-white font-bold">
+                          <span className="text-foreground font-bold">
                             {formatPrice(Number(item.product.salePrice) * item.quantity)}
                           </span>
                         </div>
@@ -216,11 +216,11 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
               </div>
             </ScrollArea>
 
-            <div className="border-t border-primary/10 bg-gradient-to-t from-black to-transparent p-6 space-y-4">
+            <div className="border-t border-primary/10 bg-gradient-to-t from-background/80 to-transparent p-6 space-y-4">
               <div className="space-y-2">
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-muted-foreground">Subtotal</span>
-                  <span className="text-white">{formatPrice(subtotal)}</span>
+                  <span className="text-foreground">{formatPrice(subtotal)}</span>
                 </div>
                 {comboDiscount > 0 && (
                   <div className="flex justify-between items-center text-sm">
@@ -233,7 +233,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
                 )}
                 <div className="flex justify-between items-center pt-2 border-t border-primary/10">
                   <span className="text-muted-foreground">Total</span>
-                  <span className="font-bold text-2xl bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent">
+                  <span className="font-bold text-2xl purple-text-gradient">
                     {formatPrice(total)}
                   </span>
                 </div>
@@ -246,14 +246,14 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
               <div className="flex gap-3">
                 <Button
                   variant="outline"
-                  className="border-muted-foreground/30 text-muted-foreground hover:bg-secondary/50 hover:text-white"
+                  className="border-muted-foreground/30 text-muted-foreground hover:bg-secondary/50 hover:text-foreground"
                   onClick={clearCart}
                   data-testid="button-clear-cart"
                 >
                   <Trash2 className="h-4 w-4" />
                 </Button>
                 <Button
-                  className="flex-1 h-12 bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-bold text-base"
+                  className="flex-1 h-12 vm-gradient text-white font-bold text-base"
                   onClick={handleCheckout}
                   data-testid="button-checkout"
                 >

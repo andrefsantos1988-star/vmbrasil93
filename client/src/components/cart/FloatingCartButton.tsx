@@ -30,9 +30,9 @@ export function FloatingCartButton({ onClick }: FloatingCartButtonProps) {
       >
         <button
           onClick={onClick}
-          className="relative rounded-full bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-400 text-black font-bold shadow-2xl transition-all duration-300 border-2 border-amber-300 flex items-center gap-3 min-h-14"
+          className="relative rounded-full vm-gradient text-white font-bold shadow-2xl transition-all duration-300 border-2 border-purple-300/50 flex items-center gap-3 min-h-14"
           style={{
-            boxShadow: '0 0 30px rgba(245, 158, 11, 0.5), 0 0 60px rgba(245, 158, 11, 0.3), 0 4px 15px rgba(0, 0, 0, 0.3)',
+            boxShadow: '0 0 30px rgba(139, 92, 246, 0.5), 0 0 60px rgba(139, 92, 246, 0.3), 0 4px 15px rgba(0, 0, 0, 0.2)',
           }}
           data-testid="button-floating-cart"
         >
@@ -47,7 +47,7 @@ export function FloatingCartButton({ onClick }: FloatingCartButtonProps) {
                 key={itemCount}
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                className="absolute -top-2 -right-2 bg-black text-amber-400 text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center border border-amber-400"
+                className="absolute -top-2 -right-2 bg-white text-primary text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center border border-purple-200"
                 data-testid="badge-cart-count"
               >
                 {itemCount}
@@ -61,7 +61,7 @@ export function FloatingCartButton({ onClick }: FloatingCartButtonProps) {
         </button>
 
         <motion.div
-          className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 blur-xl opacity-40 -z-10"
+          className="absolute inset-0 rounded-full vm-gradient blur-xl opacity-40 -z-10"
           animate={{
             scale: [1, 1.1, 1],
             opacity: [0.4, 0.6, 0.4],

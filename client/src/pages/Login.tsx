@@ -12,7 +12,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/lib/auth';
 import { apiRequest } from '@/lib/queryClient';
-import logoImage from '@assets/vibedrinksfinal_1765554834904.gif';
+import logoImage from '@assets/ClnKwtBSZos86Dgm_1765947501130.gif';
 import { NEIGHBORHOODS, DELIVERY_ZONES, DELIVERY_FEE_WARNING, type DeliveryZone as DeliveryZoneType } from '@shared/delivery-zones';
 
 type Step = 'phone' | 'password' | 'register';
@@ -326,8 +326,8 @@ export default function Login() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-background to-black/50 flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-gradient-radial-gold opacity-20 pointer-events-none" />
+    <div className="min-h-screen bg-gradient-to-b from-violet-50 via-purple-50 to-white dark:from-gray-950 dark:via-purple-950/20 dark:to-gray-900 flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-gradient-radial-purple opacity-20 pointer-events-none" />
       
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -337,12 +337,13 @@ export default function Login() {
       >
         <Card className="bg-card/80 backdrop-blur-xl border-primary/20 shadow-2xl shadow-primary/5">
           <CardHeader className="text-center pb-2">
-            <Link href="/">
+            <Link href="/" className="flex flex-col items-center mb-4">
               <img 
                 src={logoImage} 
-                alt="Vibe Drinks" 
-                className="h-14 mx-auto mb-4 hover:opacity-80 transition-opacity"
+                alt="VM Drinks" 
+                className="h-16 mx-auto hover:opacity-80 transition-opacity"
               />
+              <span className="text-lg font-bold purple-text-gradient mt-2">VM Drinks</span>
             </Link>
             
             <AnimatePresence mode="wait">
@@ -353,7 +354,7 @@ export default function Login() {
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
               >
-                <CardTitle className="font-serif text-2xl bg-gradient-to-r from-primary via-amber-400 to-primary bg-clip-text text-transparent">
+                <CardTitle className="font-semibold text-2xl purple-text-gradient">
                   {step === 'phone' && 'Entrar'}
                   {step === 'password' && `Ola, ${userName}!`}
                   {step === 'register' && 'Criar Conta'}
@@ -423,7 +424,7 @@ export default function Login() {
                   </div>
 
                   <Button
-                    className="w-full h-12 bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-semibold text-lg"
+                    className="w-full h-12 vm-gradient text-white font-semibold text-lg"
                     onClick={handleCheckPhone}
                     disabled={isLoading}
                     data-testid="button-continue"
@@ -490,7 +491,7 @@ export default function Login() {
                       Voltar
                     </Button>
                     <Button
-                      className="flex-1 h-12 bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-semibold"
+                      className="flex-1 h-12 vm-gradient text-white font-semibold"
                       onClick={handleLogin}
                       disabled={isLoading || password.length !== 6}
                       data-testid="button-login"
@@ -652,7 +653,7 @@ export default function Login() {
                       Voltar
                     </Button>
                     <Button
-                      className="flex-1 h-11 bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-semibold"
+                      className="flex-1 h-11 vm-gradient text-white font-semibold"
                       onClick={handleRegister}
                       disabled={isLoading}
                       data-testid="button-register"
@@ -699,7 +700,7 @@ export default function Login() {
             <Button
               onClick={handleForgotPassword}
               disabled={forgotPasswordLoading}
-              className="bg-gradient-to-r from-amber-500 to-yellow-500 text-black"
+              className="vm-gradient text-white"
               data-testid="button-confirm-forgot"
             >
               {forgotPasswordLoading ? (
@@ -766,7 +767,7 @@ export default function Login() {
             <Button
               onClick={handleChangePassword}
               disabled={changePasswordLoading || newPassword.length !== 6 || confirmPassword.length !== 6}
-              className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 text-black"
+              className="w-full vm-gradient text-white"
               data-testid="button-save-new-password"
             >
               {changePasswordLoading ? (

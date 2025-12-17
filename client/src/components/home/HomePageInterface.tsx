@@ -3,7 +3,7 @@ import { Bell, Plus, Wine, Beer, Grape, Snowflake, Zap, GlassWater, UtensilsCros
 import { useCart } from '@/lib/cart';
 import { useAuth } from '@/lib/auth';
 import type { Product, Category, Banner } from '@shared/schema';
-import logoImage from '@assets/vibedrinksfinal_1765554834904.gif';
+import logoImage from '@assets/ClnKwtBSZos86Dgm_1765947501130.gif';
 
 const CATEGORY_ICONS: Record<string, any> = {
   wine: Wine,
@@ -47,17 +47,18 @@ export function HomePageInterface({
 
   return (
     <div className="pb-32 animate-fade-in">
-      <div className="p-6 flex justify-between items-center bg-white shadow-sm" data-testid="header">
+      <div className="p-6 flex justify-between items-center glass-header sticky top-0 z-40" data-testid="header">
         <div>
-          <div className="text-xs font-bold text-gray-400 uppercase tracking-wider">Bem-vindo</div>
-          <div className="text-xl font-black text-gray-900 flex items-center gap-1" data-testid="text-username">
-            {userName.split(' ')[0]} <Sparkles size={16} className="text-yellow-500"/>
+          <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Bem-vindo</div>
+          <div className="text-xl font-black text-foreground flex items-center gap-1" data-testid="text-username">
+            {userName.split(' ')[0]} <Sparkles size={16} className="text-primary"/>
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <img src={logoImage} alt="Vibe Drinks" className="h-10 w-auto" data-testid="img-logo"/>
-          <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600">
+          <img src={logoImage} alt="VM Drinks" className="h-10 w-auto" data-testid="img-logo"/>
+          <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary relative">
             <Bell size={20}/>
+            <span className="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
           </div>
         </div>
       </div>
@@ -71,7 +72,7 @@ export function HomePageInterface({
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 alt={banner.title}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent p-5 flex flex-col justify-center text-white">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-900/80 to-transparent p-5 flex flex-col justify-center text-white">
                 <h3 className="font-black text-xl uppercase leading-none mb-1">{banner.title}</h3>
                 {banner.description && <p className="text-sm font-medium opacity-90">{banner.description}</p>}
               </div>
@@ -85,8 +86,8 @@ export function HomePageInterface({
           onClick={() => setActiveCategory(null)}
           className={`flex flex-col items-center gap-2 min-w-[70px] p-3 rounded-2xl transition-all ${
             activeCategory === null 
-              ? 'bg-vm-purple text-white shadow-lg shadow-purple-500/30 scale-105' 
-              : 'bg-white text-gray-500 border border-gray-100'
+              ? 'vm-gradient text-white shadow-lg shadow-purple-500/30 scale-105' 
+              : 'bg-card text-muted-foreground border border-border'
           }`}
           data-testid="category-all"
         >
@@ -99,8 +100,8 @@ export function HomePageInterface({
             onClick={() => setActiveCategory('__trending__')}
             className={`flex flex-col items-center gap-2 min-w-[70px] p-3 rounded-2xl transition-all ${
               activeCategory === '__trending__' 
-                ? 'bg-vm-purple text-white shadow-lg shadow-purple-500/30 scale-105' 
-                : 'bg-white text-gray-500 border border-gray-100'
+                ? 'vm-gradient text-white shadow-lg shadow-purple-500/30 scale-105' 
+                : 'bg-card text-muted-foreground border border-border'
             }`}
             data-testid="category-trending"
           >
@@ -117,8 +118,8 @@ export function HomePageInterface({
               onClick={() => setActiveCategory(category.id)}
               className={`flex flex-col items-center gap-2 min-w-[70px] p-3 rounded-2xl transition-all ${
                 activeCategory === category.id 
-                  ? 'bg-vm-purple text-white shadow-lg shadow-purple-500/30 scale-105' 
-                  : 'bg-white text-gray-500 border border-gray-100'
+                  ? 'vm-gradient text-white shadow-lg shadow-purple-500/30 scale-105' 
+                  : 'bg-card text-muted-foreground border border-border'
               }`}
               data-testid={`category-${category.id}`}
             >
@@ -131,7 +132,7 @@ export function HomePageInterface({
 
       <div className="p-6">
         <div className="flex justify-between items-end mb-4">
-          <h2 className="text-xl font-black text-gray-900" data-testid="section-title">
+          <h2 className="text-xl font-black text-foreground" data-testid="section-title">
             {activeCategory === '__trending__' ? 'Em Alta' : activeCategory ? categories.find(c => c.id === activeCategory)?.name || 'Produtos' : 'Populares'}
           </h2>
         </div>
@@ -139,10 +140,10 @@ export function HomePageInterface({
         {isLoading ? (
           <div className="grid grid-cols-2 gap-4">
             {[1, 2, 3, 4].map(i => (
-              <div key={i} className="bg-white p-3 rounded-2xl shadow-sm border border-gray-100 animate-pulse">
-                <div className="aspect-square rounded-xl bg-gray-200 mb-3"></div>
-                <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                <div className="h-6 bg-gray-200 rounded w-1/2"></div>
+              <div key={i} className="bg-card p-3 rounded-2xl shadow-sm border border-border animate-pulse">
+                <div className="aspect-square rounded-xl bg-muted mb-3"></div>
+                <div className="h-4 bg-muted rounded mb-2"></div>
+                <div className="h-6 bg-muted rounded w-1/2"></div>
               </div>
             ))}
           </div>
@@ -152,10 +153,10 @@ export function HomePageInterface({
               <div 
                 key={product.id} 
                 onClick={() => onProductClick?.(product)}
-                className="bg-white p-3 rounded-2xl shadow-sm border border-gray-100 flex flex-col gap-3 group active:scale-95 transition-all cursor-pointer"
+                className="bg-card p-3 rounded-2xl shadow-sm border border-border flex flex-col gap-3 group active:scale-95 transition-all cursor-pointer hover:border-primary/30 hover:shadow-md"
                 data-testid={`product-card-${product.id}`}
               >
-                <div className="aspect-square rounded-xl overflow-hidden relative bg-gray-100">
+                <div className="aspect-square rounded-xl overflow-hidden relative bg-muted">
                   {product.imageUrl ? (
                     <img 
                       src={product.imageUrl} 
@@ -163,19 +164,19 @@ export function HomePageInterface({
                       alt={product.name}
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-vm-purple/10 to-vm-light/10">
-                      <Wine size={48} className="text-vm-purple/30" />
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10">
+                      <Wine size={48} className="text-primary/30" />
                     </div>
                   )}
-                  <div className="absolute bottom-2 right-2 bg-white/90 backdrop-blur text-xs font-black px-2 py-1 rounded-lg shadow-sm flex items-center gap-1">
-                    <Star size={10} className="fill-yellow-400 text-yellow-400" />
+                  <div className="absolute bottom-2 right-2 bg-card/90 backdrop-blur text-xs font-black px-2 py-1 rounded-lg shadow-sm flex items-center gap-1">
+                    <Star size={10} className="fill-primary text-primary" />
                     4.5
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 text-sm leading-tight line-clamp-2 mb-1">{product.name}</h3>
+                  <h3 className="font-bold text-foreground text-sm leading-tight line-clamp-2 mb-1">{product.name}</h3>
                   <div className="flex justify-between items-center mt-2">
-                    <span className="font-black text-lg text-vm-purple">
+                    <span className="font-black text-lg text-primary">
                       R$ {Number(product.salePrice).toFixed(0)}
                       <span className="text-xs align-top">,{Number(product.salePrice).toFixed(2).split('.')[1]}</span>
                     </span>
@@ -184,7 +185,7 @@ export function HomePageInterface({
                         e.stopPropagation(); 
                         addItem(product); 
                       }}
-                      className="w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center hover:bg-vm-purple transition-colors shadow-lg"
+                      className="w-8 h-8 vm-gradient text-white rounded-full flex items-center justify-center shadow-lg purple-glow-sm transition-all hover:scale-110"
                       data-testid={`add-to-cart-${product.id}`}
                     >
                       <Plus size={16} />

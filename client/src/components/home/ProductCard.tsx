@@ -117,7 +117,7 @@ export function ProductCard({ product, categoryName }: ProductCardProps) {
           <div className="space-y-3 mt-auto">
             <div className="flex items-baseline gap-2">
               <span 
-                className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent"
+                className="text-2xl font-bold purple-text-gradient"
                 data-testid={`text-product-price-${product.id}`}
               >
                 {formatPrice(product.salePrice)}
@@ -160,7 +160,7 @@ export function ProductCard({ product, categoryName }: ProductCardProps) {
                 </div>
               ) : (
                 <Button
-                  className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-semibold hover:from-amber-400 hover:to-yellow-400 transition-all duration-300"
+                  className="w-full vm-gradient text-white font-semibold transition-all duration-300"
                   onClick={handleAddItem}
                   data-testid={`button-add-${product.id}`}
                 >
