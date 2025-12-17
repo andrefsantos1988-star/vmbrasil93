@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/lib/auth';
 import { apiRequest } from '@/lib/queryClient';
-import logoImage from '@assets/vibedrinksfinal_1765554834904.gif';
+import logoImage from '@assets/targeted_element_1765948912575.png';
 
 type LoginMode = 'staff' | 'motoboy';
 
