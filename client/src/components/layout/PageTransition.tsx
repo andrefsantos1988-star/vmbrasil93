@@ -10,12 +10,10 @@ export function PageTransition({ children }: PageTransitionProps) {
   const [location] = useLocation();
   const [displayLocation, setDisplayLocation] = useState(location);
   const [direction, setDirection] = useState(0);
-  const [prevLocation, setPrevLocation] = useState(location);
 
   useEffect(() => {
     if (location !== displayLocation) {
       setDirection(location === '/' ? -1 : 1);
-      setPrevLocation(displayLocation);
       setDisplayLocation(location);
     }
   }, [location, displayLocation]);
@@ -24,11 +22,11 @@ export function PageTransition({ children }: PageTransitionProps) {
     <AnimatePresence mode="wait">
       <motion.div
         key={displayLocation}
-        initial={{ opacity: 0, y: direction > 0 ? 50 : -50 }}
+        initial={{ opacity: 0, y: direction > 0 ? 80 : -80 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: direction > 0 ? -50 : 50 }}
+        exit={{ opacity: 0, y: direction > 0 ? -80 : 80 }}
         transition={{
-          duration: 0.4,
+          duration: 0.5,
           ease: [0.4, 0, 0.2, 1],
         }}
       >
