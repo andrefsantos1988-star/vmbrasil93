@@ -12,7 +12,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/lib/auth';
 import { apiRequest } from '@/lib/queryClient';
-import logoImage from '@assets/targeted_element_1765948912575.png';
+import logoImage from '@assets/ClnKwtBSZos86Dgm_1765949157646.gif';
 import { NEIGHBORHOODS, DELIVERY_ZONES, DELIVERY_FEE_WARNING, type DeliveryZone as DeliveryZoneType } from '@shared/delivery-zones';
 
 type Step = 'phone' | 'password' | 'register';

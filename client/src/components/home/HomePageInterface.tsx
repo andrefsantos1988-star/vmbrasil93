@@ -4,7 +4,7 @@ import { useLocation } from 'wouter';
 import { useCart } from '@/lib/cart';
 import { useAuth } from '@/lib/auth';
 import type { Product, Category, Banner } from '@shared/schema';
-import logoImage from '@assets/targeted_element_1765948912575.png';
+import logoImage from '@assets/ClnKwtBSZos86Dgm_1765949157646.gif';
 
 const CATEGORY_ICONS: Record<string, any> = {
   wine: Wine,
