@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Bell, Plus, Wine, Beer, Grape, Snowflake, Zap, GlassWater, UtensilsCrossed, Droplets, Sparkles, Star, TrendingUp, Settings, Zap as Lightning, Coffee, Flame, Utensils } from 'lucide-react';
+import { Bell, Plus, Wine, Beer, Grape, Snowflake, Zap, GlassWater, UtensilsCrossed, Droplets, Sparkles, Star, TrendingUp, Settings, Zap as Lightning, Coffee, Flame, Utensils, AlertCircle } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { useCart } from '@/lib/cart';
 import { useAuth } from '@/lib/auth';
 import type { Product, Category, Banner } from '@shared/schema';
+import { isPreparedCategoryName } from '@shared/schema';
 import logoImage from '@assets/ClnKwtBSZos86Dgm_1765949157646.gif';
 import comboImage from '@assets/image_1765222114085.png';
 import salgadoImage from '@assets/image_1765222097866.png';
@@ -226,20 +227,31 @@ export function HomePageInterface({
         
         {categories.map(category => {
           const IconComponent = CATEGORY_ICONS[category.iconUrl || ''] || Wine;
+          const isSpecial = isPreparedCategoryName(category.name);
           return (
-            <button 
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`flex flex-col items-center gap-2 min-w-[70px] p-3 rounded-2xl transition-all ${
-                activeCategory === category.id 
-                  ? 'vm-gradient text-white shadow-lg shadow-purple-500/30 scale-105' 
-                  : 'bg-card text-muted-foreground border border-border'
-              }`}
-              data-testid={`category-${category.id}`}
-            >
-              <IconComponent size={24} />
-              <span className="text-[10px] font-bold">{category.name}</span>
-            </button>
+            <div key={category.id} className="relative">
+              <button 
+                onClick={() => setActiveCategory(category.id)}
+                className={`flex flex-col items-center gap-2 min-w-[70px] p-3 rounded-2xl transition-all ${
+                  activeCategory === category.id 
+                    ? isSpecial 
+                      ? 'bg-gradient-to-br from-amber-500 to-amber-700 text-white shadow-lg shadow-amber-500/30 scale-105' 
+                      : 'vm-gradient text-white shadow-lg shadow-purple-500/30 scale-105' 
+                    : isSpecial
+                      ? 'bg-amber-50 text-amber-900 border border-amber-300'
+                      : 'bg-card text-muted-foreground border border-border'
+                }`}
+                data-testid={`category-${category.id}`}
+              >
+                <IconComponent size={24} />
+                <span className="text-[10px] font-bold">{category.name}</span>
+              </button>
+              {isSpecial && (
+                <div className="absolute -top-1 -right-1 bg-amber-500 text-white rounded-full p-1" title="Categoria Especial">
+                  <Sparkles size={12} />
+                </div>
+              )}
+            </div>
           );
         })}
       </div>

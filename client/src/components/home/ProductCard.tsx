@@ -100,12 +100,19 @@ export function ProductCard({ product, categoryName }: ProductCardProps) {
 
         <div className="flex flex-col flex-1 p-4 gap-3">
           <div className="flex-1">
-            <h3 
-              className="font-semibold text-card-foreground text-lg mb-1 line-clamp-2 group-hover:text-primary transition-colors duration-300"
-              data-testid={`text-product-name-${product.id}`}
-            >
-              {product.name}
-            </h3>
+            <div className="flex items-start gap-2 mb-1">
+              <h3 
+                className="font-semibold text-card-foreground text-lg line-clamp-2 group-hover:text-primary transition-colors duration-300 flex-1"
+                data-testid={`text-product-name-${product.id}`}
+              >
+                {product.name}
+              </h3>
+              {isPreparedProduct && (
+                <Badge className="bg-amber-500/90 text-white border-none text-xs flex-shrink-0 whitespace-nowrap" title="Produto preparado">
+                  PREPARO
+                </Badge>
+              )}
+            </div>
             
             {product.description && (
               <p className="text-muted-foreground text-sm line-clamp-2 leading-relaxed">
