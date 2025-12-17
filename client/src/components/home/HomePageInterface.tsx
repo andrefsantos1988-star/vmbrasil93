@@ -67,11 +67,18 @@ export function HomePageInterface({
 
   return (
     <div className="pb-32 animate-fade-in">
-      <div className="px-3 py-2 flex flex-col items-center gap-1 glass-header sticky top-0 z-40" data-testid="header">
-        {/* Logo centralizado */}
-        <img src={logoImage} alt="VM Brasil" className="h-12 w-auto" data-testid="img-logo"/>
+      <div className="px-3 py-2 glass-header sticky top-0 z-40" data-testid="header">
+        {/* Primeira linha: Logo e Bem-Vindo */}
+        <div className="flex items-center justify-between mb-2">
+          <img src={logoImage} alt="VM Brasil" className="h-14 w-auto" data-testid="img-logo"/>
+          
+          <div className="text-right text-sm">
+            <div className="font-bold text-foreground">Bem-Vindo</div>
+            <div className="text-xs text-muted-foreground">{userName}</div>
+          </div>
+        </div>
 
-        {/* Barra de pesquisa e controles */}
+        {/* Segunda linha: Barra de pesquisa e controles */}
         <div className="w-full flex items-center justify-between gap-1">
           <div className="flex-1 min-w-0">
             <SearchBox products={products} onProductSelect={handleProductSelect} />
