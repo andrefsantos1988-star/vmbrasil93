@@ -97,8 +97,8 @@ export function Header({ onCartOpen }: HeaderProps) {
                 </SheetHeader>
                 <div className="flex flex-col h-full pt-8">
                   <div className="flex items-center justify-between mb-8">
-                    <img src={logoImage} alt="VM" className="h-10" />
-                    <span className="text-lg font-bold purple-text-gradient">VM Drinks</span>
+                    <img src={logoImage} alt="VM Brasil" className="h-10" />
+                    <span className="text-lg font-bold purple-text-gradient">VM Brasil</span>
                   </div>
 
                   {isAuthenticated && (

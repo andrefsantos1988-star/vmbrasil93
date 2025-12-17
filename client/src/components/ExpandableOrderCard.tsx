@@ -258,7 +258,7 @@ export function ExpandableOrderCard({
                     className="bg-green-600 text-white flex-shrink-0"
                     onClick={(e) => {
                       e.stopPropagation();
-                      openWhatsApp(order.userWhatsapp!, `Ola! Sobre o pedido #${orderId} da Vibe Drinks...`);
+                      openWhatsApp(order.userWhatsapp!, `Ola! Sobre o pedido #${orderId} da VM Brasil...`);
                     }}
                     data-testid={`button-whatsapp-customer-${order.id}`}
                   >
@@ -465,7 +465,7 @@ export function ExpandableOrderCard({
                           className="bg-purple-600 text-white flex-shrink-0"
                           onClick={(e) => {
                             e.stopPropagation();
-                            openWhatsApp(order.motoboy!.whatsapp, `Ola! Sobre o pedido #${orderId} da Vibe Drinks...`);
+                            openWhatsApp(order.motoboy!.whatsapp, `Ola! Sobre o pedido #${orderId} da VM Brasil...`);
                           }}
                           data-testid={`button-whatsapp-motoboy-${order.id}`}
                         >

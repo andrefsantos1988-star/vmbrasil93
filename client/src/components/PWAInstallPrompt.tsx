@@ -116,7 +116,7 @@ export function PWAInstallPrompt() {
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-xl">
               <Smartphone className="w-6 h-6 text-primary" />
-              Instale o Vibe Drinks!
+              Instale o VM Brasil!
             </DialogTitle>
           </DialogHeader>
           
@@ -184,7 +184,7 @@ export function PWAInstallPrompt() {
                   </div>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium text-sm">Instale o Vibe Drinks</p>
+                  <p className="font-medium text-sm">Instale o VM Brasil</p>
                   <p className="text-xs text-muted-foreground mt-0.5">
                     Acesso rapido direto da tela inicial
                   </p>

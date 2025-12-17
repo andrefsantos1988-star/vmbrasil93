@@ -698,7 +698,7 @@ function FinanceiroTab() {
 
   const handleExport = () => {
     const csvData = [
-      ['Relatorio Financeiro - Vibe Drinks'],
+      ['Relatorio Financeiro - VM Brasil'],
       [`Periodo: ${filterStart.toLocaleDateString('pt-BR')} - ${filterEnd.toLocaleDateString('pt-BR')}`],
       [''],
       ['Resumo Geral'],
@@ -1442,7 +1442,7 @@ function EstoqueTab() {
     if (!stockReport) return;
     
     const csvData = [
-      ['Relatorio de Estoque - Vibe Drinks'],
+      ['Relatorio de Estoque - VM Brasil'],
       ['Data:', new Date().toLocaleDateString('pt-BR')],
       [],
       ['RESUMO'],
@@ -1493,7 +1493,7 @@ function EstoqueTab() {
     const totalCost = productsToExport.reduce((sum, p) => sum + p.estimatedPurchaseCost, 0);
     
     const csvData = [
-      ['Lista de Compras - Vibe Drinks'],
+      ['Lista de Compras - VM Brasil'],
       ['Data:', new Date().toLocaleDateString('pt-BR')],
       [],
       ['RESUMO'],
@@ -1538,7 +1538,7 @@ function EstoqueTab() {
     
     doc.setFontSize(18);
     doc.setFont('helvetica', 'bold');
-    doc.text('Lista de Compras - Vibe Drinks', 14, 20);
+    doc.text('Lista de Compras - VM Brasil', 14, 20);
     
     doc.setFontSize(10);
     doc.setFont('helvetica', 'normal');
@@ -2199,7 +2199,7 @@ function ClientesTab() {
 
   const copyPasswordToClipboard = async () => {
     if (resetPasswordData) {
-      const message = `Ola ${resetPasswordData.user.name}!\n\nSua nova senha da Vibe Drinks e: ${resetPasswordData.password}\n\nGuarde com seguranca!`;
+      const message = `Ola ${resetPasswordData.user.name}!\n\nSua nova senha da VM Brasil e: ${resetPasswordData.password}\n\nGuarde com seguranca!`;
       await navigator.clipboard.writeText(message);
       toast({ title: 'Mensagem copiada!', description: 'Cole no WhatsApp do cliente.' });
     }

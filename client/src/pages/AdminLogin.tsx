@@ -142,7 +142,7 @@ export default function AdminLogin() {
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <Card className="w-full max-w-md bg-card border-primary/20">
         <CardHeader className="text-center">
-          <img src={logoImage} alt="Vibe Drinks" className="h-16 mx-auto mb-4" />
+          <img src={logoImage} alt="VM Brasil" className="h-16 mx-auto mb-4" />
           <CardTitle className="font-serif text-2xl text-primary">
             Acesso Restrito
           </CardTitle>

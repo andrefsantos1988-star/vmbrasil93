@@ -80,7 +80,7 @@ export function Footer() {
           viewport={{ once: true }}
           className="text-center text-xs text-muted-foreground"
         >
-          <p>© 2025 Vibe Drinks. Todos os direitos reservados.</p>
+          <p>© 2025 VM Brasil. Todos os direitos reservados.</p>
           <p className="mt-1">Bebidas Premium com Entrega Rápida</p>
         </motion.div>
       </div>
