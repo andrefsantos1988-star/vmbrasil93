@@ -9,11 +9,9 @@ interface PageTransitionProps {
 export function PageTransition({ children }: PageTransitionProps) {
   const [location] = useLocation();
   const [displayLocation, setDisplayLocation] = useState(location);
-  const [direction, setDirection] = useState(0);
 
   useEffect(() => {
     if (location !== displayLocation) {
-      setDirection(location === '/' ? -1 : 1);
       setDisplayLocation(location);
     }
   }, [location, displayLocation]);
@@ -22,12 +20,12 @@ export function PageTransition({ children }: PageTransitionProps) {
     <AnimatePresence mode="wait">
       <motion.div
         key={displayLocation}
-        initial={{ opacity: 0, y: direction > 0 ? 150 : -150 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: direction > 0 ? -150 : 150 }}
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -40 }}
         transition={{
-          duration: 0.6,
-          ease: [0.32, 0, 0.67, 0],
+          duration: 0.25,
+          ease: "easeInOut",
         }}
       >
         {children}
