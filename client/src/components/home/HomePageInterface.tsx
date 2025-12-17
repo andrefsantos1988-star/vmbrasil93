@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Bell, Plus, Wine, Beer, Grape, Snowflake, Zap, GlassWater, UtensilsCrossed, Droplets, Sparkles, Star, TrendingUp } from 'lucide-react';
+import { Bell, Plus, Wine, Beer, Grape, Snowflake, Zap, GlassWater, UtensilsCrossed, Droplets, Sparkles, Star, TrendingUp, Settings } from 'lucide-react';
+import { useLocation } from 'wouter';
 import { useCart } from '@/lib/cart';
 import { useAuth } from '@/lib/auth';
 import type { Product, Category, Banner } from '@shared/schema';
@@ -34,6 +35,7 @@ export function HomePageInterface({
   onProductClick
 }: HomePageInterfaceProps) {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [, setLocation] = useLocation();
   const { addItem } = useCart();
   const { user } = useAuth();
 
@@ -56,6 +58,13 @@ export function HomePageInterface({
         </div>
         <div className="flex items-center gap-3">
           <img src={logoImage} alt="VM Drinks" className="h-10 w-auto" data-testid="img-logo"/>
+          <button 
+            onClick={() => setLocation('/admin-login')}
+            className="w-10 h-10 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary transition-colors"
+            data-testid="button-admin-login"
+          >
+            <Settings size={20}/>
+          </button>
           <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary relative">
             <Bell size={20}/>
             <span className="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
