@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { ChevronDown, Sparkles, Clock, Truck, Gift, Wine } from 'lucide-react';
 import { motion } from 'framer-motion';
 import heroVideo from '@assets/ciroc_1765072919532.mp4';
-import logoImage from '@assets/ClnKwtBSZos86Dgm_1765949157646.gif';
+import logoImage from '@assets/ClnKwtBSZos86Dgm_1765952674504.gif';
 import { ComboModal } from './ComboModal';
 import { SpecialDrinksModal } from './SpecialDrinksModal';
 

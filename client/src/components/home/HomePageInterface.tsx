@@ -5,7 +5,7 @@ import { useCart } from '@/lib/cart';
 import { useAuth } from '@/lib/auth';
 import type { Product, Category, Banner } from '@shared/schema';
 import { isPreparedCategoryName } from '@shared/schema';
-import logoImage from '@assets/ClnKwtBSZos86Dgm_1765949157646.gif';
+import logoImage from '@assets/ClnKwtBSZos86Dgm_1765952674504.gif';
 import comboImage from '@assets/image_1765222114085.png';
 import salgadoImage from '@assets/image_1765222097866.png';
 import cafeImage from '@assets/image_1765222257824.png';
