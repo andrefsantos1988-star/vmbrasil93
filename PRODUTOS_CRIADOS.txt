@@ -1,0 +1,105 @@
+✅ 25 PRODUTOS PREPARADOS CRIADOS NA SEED
+
+═════════════════════════════════════════════════════════════════
+
+📋 DOSES (5 produtos):
+  1. Dose Vodka Absolut - R$ 16.00
+  2. Dose Gin Tanqueray - R$ 20.00
+  3. Dose Whisky Jack Daniels - R$ 30.00
+  4. Dose Rum Bacardi - R$ 14.00
+  5. Dose Tequila Jose Cuervo - R$ 12.00
+
+═════════════════════════════════════════════════════════════════
+
+🥤 COPAO (5 produtos):
+  1. Copao Vodka com Energetico - R$ 24.00
+  2. Copao Gin Tonic - R$ 28.00
+  3. Copao Whisky Cola - R$ 32.00
+  4. Copao Rum com Suco - R$ 20.00
+  5. Copao Vodka com Suco Cranberry - R$ 26.00
+
+═════════════════════════════════════════════════════════════════
+
+🍹 DRINKS ESPECIAIS (5 produtos):
+  1. Mojito Classico - R$ 30.00
+  2. Caipirinha de Morango - R$ 24.00
+  3. Pina Colada - R$ 36.00
+  4. Margarita Classica - R$ 32.00
+  5. Cosmopolitan - R$ 28.00
+
+═════════════════════════════════════════════════════════════════
+
+🎉 BATIDAS (5 produtos):
+  1. Batida de Morango - R$ 20.00
+  2. Batida de Coco - R$ 20.00
+  3. Batida de Limao - R$ 16.00
+  4. Batida de Abacaxi - R$ 18.00
+  5. Batida de Maracuja - R$ 22.00
+
+═════════════════════════════════════════════════════════════════
+
+🥒 CAIPIRINHAS (5 produtos):
+  1. Caipirinha Tradicional - R$ 20.00
+  2. Caipirinha de Maracuja - R$ 24.00
+  3. Caipirinha de Melancia - R$ 22.00
+  4. Caipirinha de Gengibre - R$ 18.00
+  5. Caipirinha Premium Black - R$ 30.00
+
+═════════════════════════════════════════════════════════════════
+
+🧪 CARACTERÍSTICAS ESPECIAIS:
+
+✅ Todos com stock = 0 (não mostram estoque na UI)
+✅ Todas com margem = 100% (lucro puro sobre custo)
+✅ Campo de estoque NÃO aparece no form para essas categorias
+✅ Coluna de estoque NÃO aparece na tabela para essas categorias
+✅ Não contam em: valor estoque, lucro potencial, lista compra
+✅ Vendas aparecem em: /api/prepared-products/sales-report
+
+═════════════════════════════════════════════════════════════════
+
+🧪 COMO TESTAR:
+
+1. ADMIN > Produtos
+   ├─ Veja a lista com 25 produtos novos
+   ├─ Clique em DOSES / COPAO / etc
+   ├─ Verá que NÃO há campo "Estoque" no formulário
+
+2. TABELA DE PRODUTOS
+   ├─ Mude para visualização em Tabela
+   ├─ Veja que coluna de estoque NÃO aparece para preparados
+   ├─ Outras colunas (Custo, Venda, Margem) aparecem normalmente
+
+3. RELATÓRIO DE ESTOQUE
+   ├─ Admin > Relatórios > Estoque
+   ├─ Veja que "Unidades em Estoque" = 0
+   ├─ Produtos preparados NÃO aparecem nas tabelas
+   ├─ Campo "Produtos Excluídos" mostra: 25
+
+4. CRIE UM PEDIDO
+   ├─ Vá para loja virtual (como cliente)
+   ├─ Adicione produtos preparados ao carrinho
+   ├─ Faça pedido
+   ├─ Vendas aparecem em: /api/prepared-products/sales-report
+
+═════════════════════════════════════════════════════════════════
+
+📊 VERIFICAÇÃO RÁPIDA:
+
+GET /api/categories
+├─ Retorna 13 categorias (8 normais + 5 preparadas)
+└─ Últimas 5: DOSES, COPAO, DRINKS ESPECIAIS, BATIDAS, CAIPIRINHAS
+
+GET /api/products
+├─ Retorna 41 produtos (16 normais + 25 preparados)
+└─ Últimos 25: todos com stock = 0
+
+GET /api/stock/report
+├─ excludedFromValueCount: 25 (produtos preparados excluídos)
+├─ totalCostValue: SÓ estoque regular
+├─ totalSaleValue: SÓ estoque regular
+└─ totalPotentialProfit: SÓ estoque regular
+
+═════════════════════════════════════════════════════════════════
+✅ PRONTO PARA TESTAR
+═════════════════════════════════════════════════════════════════

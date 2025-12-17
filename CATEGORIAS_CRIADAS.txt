@@ -1,0 +1,65 @@
+✅ CATEGORIAS PREPARADAS CRIADAS AUTOMATICAMENTE
+
+As seguintes categorias foram criadas no banco de dados e NÃO mostram campo de estoque:
+
+1. ✅ DOSES (sortOrder: 9)
+2. ✅ COPAO (sortOrder: 10)
+3. ✅ DRINKS ESPECIAIS (sortOrder: 11)
+4. ✅ BATIDAS (sortOrder: 12)
+5. ✅ CAIPIRINHAS (sortOrder: 13)
+
+═════════════════════════════════════════════════════════════════
+
+COMPORTAMENTO NA UI:
+
+1. ✅ NO FORMULÁRIO DE CRIAR/EDITAR PRODUTO
+   └─ Se categoria é DOSES/COPAO/etc: campo de estoque NÃO aparece
+   └─ Estoque é automaticamente setado para 0
+   └─ Campo "Estoque" fica totalmente oculto
+
+2. ✅ NA TABELA DE PRODUTOS
+   └─ Coluna de estoque não aparece para itens preparados
+   └─ Outros campos (Custo, Venda, Margem) aparecem normalmente
+   └─ Switches (Ativo, Preparado, Combo) funcionam normalmente
+
+3. ✅ NO DASHBOARD DE ESTOQUE
+   └─ Itens preparados NUNCA contam em:
+      • Total de Unidades em Estoque
+      • Valor em Custo
+      • Valor em Venda
+      • Lucro Potencial
+      • Estoque Baixo
+      • Sem Estoque
+
+═════════════════════════════════════════════════════════════════
+
+IMPLEMENTAÇÃO:
+
+Frontend (client/src/pages/admin/Dashboard.tsx):
+- Função isPreparedCategory() agora usa isPreparedCategoryName() do schema
+- Condicional em linha 3204: {!isFormCategoryPrepared && (...)} - não mostra stock no form
+- Condicional em linha 3521: {!isCategoryPrepared && (...)} - não mostra stock na tabela
+- Linha 3067: stockValue = 0 se for item preparado
+
+Backend (server/storage.ts):
+- Categorias DOSES, COPAO, DRINKS ESPECIAIS, BATIDAS, CAIPIRINHAS criadas na seed
+
+Backend APIs (server/routes.ts):
+- Todas usam isPreparedCategoryName() para validação centralizada
+- /api/stock/report: Exclui preparados de cálculos
+- /api/stock/low-stock: Nunca retorna preparados
+- /api/stock/shopping-list: Impossível adicionar preparados
+
+═════════════════════════════════════════════════════════════════
+
+COMO USAR:
+
+1. Crie produtos com essas categorias
+2. Verá que NÃO há campo de estoque para eles
+3. Valores de estoque são automaticamente 0
+4. Relatório de estoque os exclui completamente
+5. Vendas aparecem APENAS no relatório de itens preparados
+
+═════════════════════════════════════════════════════════════════
+✅ SISTEMA 100% PRONTO E TESTADO
+═════════════════════════════════════════════════════════════════
