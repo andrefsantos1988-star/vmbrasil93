@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { Bell, Plus, Wine, Beer, Grape, Snowflake, Zap, GlassWater, UtensilsCrossed, Droplets, Sparkles, Star, TrendingUp, Settings, Zap as Lightning, Wine as WineIcon } from 'lucide-react';
+import { Bell, Plus, Wine, Beer, Grape, Snowflake, Zap, GlassWater, UtensilsCrossed, Droplets, Sparkles, Star, TrendingUp, Settings, Zap as Lightning, Coffee, Flame, Utensils } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { useCart } from '@/lib/cart';
 import { useAuth } from '@/lib/auth';
 import type { Product, Category, Banner } from '@shared/schema';
 import logoImage from '@assets/ClnKwtBSZos86Dgm_1765949157646.gif';
 import comboImage from '@assets/image_1765222114085.png';
+import salgadoImage from '@assets/image_1765222097866.png';
+import cafeImage from '@assets/image_1765222257824.png';
 import { ComboModal } from './ComboModal';
 import { SpecialDrinksModal } from './SpecialDrinksModal';
 
@@ -43,6 +45,9 @@ export function HomePageInterface({
   const { user } = useAuth();
   const [comboModalOpen, setComboModalOpen] = useState(false);
   const [specialDrinksModalOpen, setSpecialDrinksModalOpen] = useState(false);
+  const [salgadoModalOpen, setSalgadoModalOpen] = useState(false);
+  const [cafeModalOpen, setCafeModalOpen] = useState(false);
+  const [mistoModalOpen, setMistoModalOpen] = useState(false);
 
   const filteredProducts = activeCategory 
     ? products.filter(p => p.categoryId === activeCategory)
@@ -95,10 +100,10 @@ export function HomePageInterface({
         </div>
       )}
 
-      <div className="mt-4 px-6 flex gap-3" data-testid="promo-banner">
+      <div className="mt-4 px-6 flex gap-3 overflow-x-auto pb-2 scrollbar-hide" data-testid="promo-banner">
         <button
           onClick={() => setComboModalOpen(true)}
-          className="flex-1 bg-gradient-to-r from-purple-600 to-purple-800 rounded-2xl p-3 text-white shadow-lg hover:shadow-xl transition-all hover:scale-105 group relative overflow-hidden h-28"
+          className="flex-shrink-0 w-1/2 bg-gradient-to-r from-purple-600 to-purple-800 rounded-2xl p-3 text-white shadow-lg hover:shadow-xl transition-all hover:scale-105 group relative overflow-hidden h-28"
           data-testid="button-combo-promo"
         >
           <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -107,7 +112,7 @@ export function HomePageInterface({
               <span className="text-xs font-bold uppercase opacity-90">Monte seu</span>
               <h3 className="font-black text-lg leading-none">COMBO</h3>
             </div>
-            <div className="flex-shrink-0 w-32 h-24 relative">
+            <div className="flex-shrink-0 w-24 h-20 relative">
               <img 
                 src={comboImage}
                 alt="Combo"
@@ -118,13 +123,70 @@ export function HomePageInterface({
         </button>
 
         <button
+          onClick={() => setSalgadoModalOpen(true)}
+          className="flex-shrink-0 w-1/2 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl p-3 text-white shadow-lg hover:shadow-xl transition-all hover:scale-105 group relative overflow-hidden h-28"
+          data-testid="button-salgado-promo"
+        >
+          <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div className="relative flex items-center justify-between h-full gap-3">
+            <div className="flex flex-col items-start gap-1 flex-1">
+              <span className="text-xs font-bold uppercase opacity-90">Combo</span>
+              <h3 className="font-black text-sm leading-none">Salgado + Refri</h3>
+            </div>
+            <div className="flex-shrink-0 w-24 h-20 relative">
+              <img 
+                src={salgadoImage}
+                alt="Salgado"
+                className="w-full h-full object-cover rounded-lg shadow-md group-hover:scale-110 transition-transform"
+              />
+            </div>
+          </div>
+        </button>
+
+        <button
+          onClick={() => setCafeModalOpen(true)}
+          className="flex-shrink-0 w-1/2 bg-gradient-to-r from-yellow-600 to-amber-700 rounded-2xl p-3 text-white shadow-lg hover:shadow-xl transition-all hover:scale-105 group relative overflow-hidden h-28"
+          data-testid="button-cafe-promo"
+        >
+          <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div className="relative flex items-center justify-between h-full gap-3">
+            <div className="flex flex-col items-start gap-1 flex-1">
+              <span className="text-xs font-bold uppercase opacity-90">Combo</span>
+              <h3 className="font-black text-sm leading-none">Café + Pão</h3>
+            </div>
+            <div className="flex-shrink-0 w-24 h-20 relative">
+              <img 
+                src={cafeImage}
+                alt="Café"
+                className="w-full h-full object-cover rounded-lg shadow-md group-hover:scale-110 transition-transform"
+              />
+            </div>
+          </div>
+        </button>
+
+        <button
+          onClick={() => setMistoModalOpen(true)}
+          className="flex-shrink-0 w-1/2 bg-gradient-to-r from-green-600 to-emerald-700 rounded-2xl p-3 text-white shadow-lg hover:shadow-xl transition-all hover:scale-105 group relative overflow-hidden h-28"
+          data-testid="button-misto-promo"
+        >
+          <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div className="relative flex items-center justify-between h-full gap-3">
+            <div className="flex flex-col items-start gap-1 flex-1">
+              <span className="text-xs font-bold uppercase opacity-90">Combo</span>
+              <h3 className="font-black text-sm leading-none">Misto + Suco</h3>
+            </div>
+            <Flame size={24} className="text-yellow-300" />
+          </div>
+        </button>
+
+        <button
           onClick={() => setSpecialDrinksModalOpen(true)}
-          className="flex-1 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl p-4 text-white shadow-lg hover:shadow-xl transition-all hover:scale-105 group relative overflow-hidden"
+          className="flex-shrink-0 w-1/2 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl p-3 text-white shadow-lg hover:shadow-xl transition-all hover:scale-105 group relative overflow-hidden h-28"
           data-testid="button-special-drinks-promo"
         >
           <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <div className="relative flex items-center justify-between">
-            <div className="flex flex-col items-start gap-1">
+          <div className="relative flex items-center justify-between h-full gap-3">
+            <div className="flex flex-col items-start gap-1 flex-1">
               <span className="text-xs font-bold uppercase opacity-90">Drinks</span>
               <h3 className="font-black text-lg leading-none">ESPECIAIS</h3>
             </div>
@@ -252,6 +314,9 @@ export function HomePageInterface({
 
       <ComboModal open={comboModalOpen} onOpenChange={setComboModalOpen} />
       <SpecialDrinksModal open={specialDrinksModalOpen} onOpenChange={setSpecialDrinksModalOpen} />
+      <ComboModal open={salgadoModalOpen} onOpenChange={setSalgadoModalOpen} />
+      <ComboModal open={cafeModalOpen} onOpenChange={setCafeModalOpen} />
+      <ComboModal open={mistoModalOpen} onOpenChange={setMistoModalOpen} />
     </div>
   );
 }
