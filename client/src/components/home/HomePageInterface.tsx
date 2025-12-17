@@ -67,32 +67,25 @@ export function HomePageInterface({
 
   return (
     <div className="pb-32 animate-fade-in">
-      <div className="px-4 py-4 flex flex-col items-center gap-3 glass-header sticky top-0 z-40" data-testid="header">
-        {/* Logo centralizado e aumentado */}
-        <div className="flex items-center gap-2 justify-center">
-          <img src={logoImage} alt="VM Brasil" className="h-16 w-auto" data-testid="img-logo"/>
-        </div>
-
-        {/* Texto de boas-vindas reduzido */}
-        <div className="text-center text-xs text-muted-foreground">
-          Bem-vindo, {userName.split(' ')[0]}
-        </div>
+      <div className="px-3 py-2 flex flex-col items-center gap-1 glass-header sticky top-0 z-40" data-testid="header">
+        {/* Logo centralizado */}
+        <img src={logoImage} alt="VM Brasil" className="h-12 w-auto" data-testid="img-logo"/>
 
         {/* Barra de pesquisa e controles */}
-        <div className="w-full flex items-center justify-between gap-2 px-2">
-          <div className="flex-1">
+        <div className="w-full flex items-center justify-between gap-1">
+          <div className="flex-1 min-w-0">
             <SearchBox products={products} onProductSelect={handleProductSelect} />
           </div>
           
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 flex-shrink-0">
             <NotificationsModal open={notificationsOpen} onOpenChange={setNotificationsOpen} />
             
             <button 
               onClick={() => setLocation('/admin-login')}
-              className="w-10 h-10 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary transition-colors flex-shrink-0"
+              className="w-9 h-9 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary transition-colors flex-shrink-0"
               data-testid="button-admin-login"
             >
-              <Settings size={18}/>
+              <Settings size={16}/>
             </button>
           </div>
         </div>
