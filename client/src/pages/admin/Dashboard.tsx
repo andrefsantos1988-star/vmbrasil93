@@ -5160,11 +5160,11 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <header className="sticky top-0 z-50 bg-background border-b border-border">
+      <header className="admin-header-glass sticky top-0 z-50">
         <div className="flex items-center justify-between gap-4 px-4 py-3">
           <div className="flex items-center gap-3">
-            <h1 className="font-serif text-xl text-primary whitespace-nowrap">VIBE DRINKS</h1>
-            <Badge className="bg-primary/20 text-primary hidden sm:inline-flex">Admin</Badge>
+            <h1 className="font-serif text-xl text-white whitespace-nowrap">VM Brasil</h1>
+            <Badge className="bg-white/20 text-white hidden sm:inline-flex">Admin</Badge>
           </div>
           <div className="flex items-center gap-2">
             <Badge 

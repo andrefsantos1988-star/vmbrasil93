@@ -162,10 +162,10 @@ export default function Kitchen() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="bg-black border-b border-primary/20 py-4 px-4 md:px-6 flex flex-wrap items-center justify-between gap-2 sticky top-0 z-50">
+      <header className="admin-header-glass py-4 px-4 md:px-6 flex flex-wrap items-center justify-between gap-2 sticky top-0 z-50">
         <div className="flex items-center gap-2 md:gap-3">
-          <ChefHat className="h-6 w-6 md:h-8 md:w-8 text-primary" />
-          <h1 className="font-serif text-lg md:text-2xl text-primary">Cozinha</h1>
+          <ChefHat className="h-6 w-6 md:h-8 md:w-8 text-white" />
+          <h1 className="font-serif text-lg md:text-2xl text-white">Cozinha</h1>
         </div>
         <div className="flex items-center gap-2 md:gap-4">
           <Badge 

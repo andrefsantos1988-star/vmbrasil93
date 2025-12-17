@@ -366,10 +366,10 @@ export default function PDV() {
 
   return (
     <div className="h-screen bg-background flex flex-col overflow-hidden">
-      <header className="bg-black border-b border-primary/20 py-2 px-3 flex items-center justify-between sticky top-0 z-50">
+      <header className="admin-header-glass py-2 px-3 flex items-center justify-between sticky top-0 z-50">
         <div className="flex items-center gap-2">
-          <ShoppingCart className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-          <h1 className="font-serif text-lg sm:text-xl text-primary">PDV</h1>
+          <ShoppingCart className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+          <h1 className="font-serif text-lg sm:text-xl text-white">PDV</h1>
         </div>
         <div className="flex items-center gap-2">
           <span className="text-muted-foreground text-xs sm:text-sm hidden sm:inline">
