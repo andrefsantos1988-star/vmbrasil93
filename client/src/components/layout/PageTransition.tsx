@@ -17,15 +17,15 @@ export function PageTransition({ children }: PageTransitionProps) {
   }, [location, displayLocation]);
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="popLayout">
       <motion.div
         key={displayLocation}
-        initial={{ opacity: 0, x: 40 }}
+        initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -40 }}
+        exit={{ opacity: 0, x: -30 }}
         transition={{
-          duration: 0.25,
-          ease: "easeInOut",
+          duration: 0.2,
+          ease: "easeOut",
         }}
       >
         {children}
