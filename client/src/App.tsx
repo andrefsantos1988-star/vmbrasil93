@@ -17,22 +17,25 @@ import PDV from "@/pages/PDV";
 import AdminDashboard from "@/pages/admin/Dashboard";
 import Profile from "@/pages/Profile";
 import { PWAInstallPrompt } from "@/components/PWAInstallPrompt";
+import { PageTransition } from "@/components/layout/PageTransition";
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/login" component={Login} />
-      <Route path="/admin-login" component={AdminLogin} />
-      <Route path="/checkout" component={Checkout} />
-      <Route path="/pedidos" component={Orders} />
-      <Route path="/perfil" component={Profile} />
-      <Route path="/cozinha" component={Kitchen} />
-      <Route path="/motoboy" component={Motoboy} />
-      <Route path="/pdv" component={PDV} />
-      <Route path="/admin" component={AdminDashboard} />
-      <Route component={NotFound} />
-    </Switch>
+    <PageTransition>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/login" component={Login} />
+        <Route path="/admin-login" component={AdminLogin} />
+        <Route path="/checkout" component={Checkout} />
+        <Route path="/pedidos" component={Orders} />
+        <Route path="/perfil" component={Profile} />
+        <Route path="/cozinha" component={Kitchen} />
+        <Route path="/motoboy" component={Motoboy} />
+        <Route path="/pdv" component={PDV} />
+        <Route path="/admin" component={AdminDashboard} />
+        <Route component={NotFound} />
+      </Switch>
+    </PageTransition>
   );
 }
 
