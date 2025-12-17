@@ -5163,16 +5163,15 @@ export default function AdminDashboard() {
       <header className="admin-header-glass sticky top-0 z-50">
         <div className="flex items-center justify-between gap-4 px-4 py-3">
           <div className="flex items-center gap-3">
-            <h1 className="font-serif text-xl text-white whitespace-nowrap">VM Brasil</h1>
-            <Badge className="bg-white/20 text-white hidden sm:inline-flex">Admin</Badge>
+            <h1 className="font-serif font-bold text-xl text-white whitespace-nowrap">VM Brasil</h1>
+            <Badge className="bg-white/20 text-white hidden sm:inline-flex font-semibold">Admin</Badge>
           </div>
           <div className="flex items-center gap-2">
             <Badge 
-              variant="outline" 
-              className={isSSEConnected ? 'border-green-500 text-green-500' : 'border-red-500 text-red-500'}
+              className={isSSEConnected ? 'bg-green-500/30 text-white border-green-400/50 font-semibold' : 'bg-red-500/30 text-white border-red-400/50 font-semibold'}
               data-testid="badge-sse-status"
             >
-              {isSSEConnected ? <Wifi className="w-3 h-3 mr-1" /> : <WifiOff className="w-3 h-3 mr-1" />}
+              {isSSEConnected ? <Wifi className="w-4 h-4 mr-1" /> : <WifiOff className="w-4 h-4 mr-1" />}
               {isSSEConnected ? 'Ao Vivo' : 'Offline'}
             </Badge>
             <span className="text-sm text-muted-foreground hidden sm:inline">{user?.name}</span>
