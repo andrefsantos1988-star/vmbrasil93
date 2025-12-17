@@ -1,0 +1,87 @@
+/* ===== ESTILOS GLOBAIS NECESSÁRIOS ===== */
+
+:root {
+  --vm-purple: #7A00FF;
+  --vm-light: #B84CFF;
+  --vm-surface: #F3F0FF;
+  --vm-dark: #1F1A24;
+  --vm-accent: #00C8FF;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #E4D4FF 0%, #F3E8FF 100%);
+  background-attachment: fixed;
+  color: #1F2937;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ===== HIDE SCROLLBAR ===== */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* ===== TAILWIND CONFIG (adicione em tailwind.config.js) ===== */
+/*
+theme: {
+  extend: {
+    colors: {
+      vm: {
+        dark: '#1F1A24',
+        purple: '#7A00FF',
+        light: '#B84CFF',
+        accent: '#00C8FF',
+        surface: '#F3F0FF',
+      }
+    },
+    animation: {
+      'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      'fadeIn': 'fadeIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+      'slideUp': 'slideUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+    },
+    keyframes: {
+      fadeIn: {
+        '0%': { opacity: '0' },
+        '100%': { opacity: '1' },
+      },
+      slideUp: {
+        '0%': { opacity: '0', transform: 'translateY(20px)' },
+        '100%': { opacity: '1', transform: 'translateY(0)' },
+      }
+    },
+    borderRadius: {
+      '3xl': '1.5rem',
+      '4xl': '2rem',
+    }
+  }
+}
+*/

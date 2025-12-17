@@ -91,6 +91,13 @@ export default {
           dark: "hsl(42 100% 37% / <alpha-value>)",
           light: "hsl(42 100% 57% / <alpha-value>)",
         },
+        vm: {
+          dark: "#1F1A24",
+          purple: "#7A00FF",
+          light: "#B84CFF",
+          accent: "#00C8FF",
+          surface: "#F3F0FF",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)", "Inter", "sans-serif"],
