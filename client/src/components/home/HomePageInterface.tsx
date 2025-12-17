@@ -5,6 +5,7 @@ import { useCart } from '@/lib/cart';
 import { useAuth } from '@/lib/auth';
 import type { Product, Category, Banner } from '@shared/schema';
 import logoImage from '@assets/ClnKwtBSZos86Dgm_1765949157646.gif';
+import comboImage from '@assets/image_1765222114085.png';
 import { ComboModal } from './ComboModal';
 import { SpecialDrinksModal } from './SpecialDrinksModal';
 
@@ -97,16 +98,22 @@ export function HomePageInterface({
       <div className="mt-4 px-6 flex gap-3" data-testid="promo-banner">
         <button
           onClick={() => setComboModalOpen(true)}
-          className="flex-1 bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl p-4 text-white shadow-lg hover:shadow-xl transition-all hover:scale-105 group relative overflow-hidden"
+          className="flex-1 bg-gradient-to-r from-purple-600 to-purple-800 rounded-2xl p-3 text-white shadow-lg hover:shadow-xl transition-all hover:scale-105 group relative overflow-hidden h-28"
           data-testid="button-combo-promo"
         >
           <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <div className="relative flex items-center justify-between">
-            <div className="flex flex-col items-start gap-1">
+          <div className="relative flex items-center justify-between h-full gap-3">
+            <div className="flex flex-col items-start gap-1 flex-1">
               <span className="text-xs font-bold uppercase opacity-90">Monte seu</span>
               <h3 className="font-black text-lg leading-none">COMBO</h3>
             </div>
-            <Lightning size={28} className="text-yellow-300" />
+            <div className="flex-shrink-0 w-32 h-24 relative">
+              <img 
+                src={comboImage}
+                alt="Combo"
+                className="w-full h-full object-cover rounded-lg shadow-md group-hover:scale-110 transition-transform"
+              />
+            </div>
           </div>
         </button>
 
